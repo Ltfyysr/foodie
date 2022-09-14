@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/colors.dart';
+import 'package:foodie/cubit/foods_page_cubit.dart';
 import 'package:foodie/views/landing_page.dart';
 
 void main() {
@@ -11,16 +13,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: color4,
-          elevation: 0,
-        )
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context)=>FoodsPageCubit()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            backgroundColor: color4,
+            elevation: 0,
+          )
+        ),
+        home: const LandingPage(),
       ),
-      home: const LandingPage(),
     );
   }
 }

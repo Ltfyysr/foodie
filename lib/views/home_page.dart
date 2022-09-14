@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/colors.dart';
-import 'package:foodie/views/basket_page.dart';
+import 'package:foodie/views/cart_page.dart';
 import 'package:foodie/views/drawer_page.dart';
 import 'package:foodie/views/foods_page.dart';
 import 'package:foodie/views/profil_page.dart';
-import 'package:foodie/views/register_page.dart';
 import 'package:foodie/views/search_page.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -101,54 +101,9 @@ class _HomePageState extends State<HomePage> {
               )
             ]),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
-        child: Icon(
-          Icons.home,
-          color: color4,
-        ),
-        backgroundColor: Colors.black,
-      ),
+      floatingActionButton: floatingActions(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        color: anaRenk,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.notifications),
-              onPressed: () {},
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 40),
-              child: IconButton(
-                icon: Icon(Icons.fastfood_rounded),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodsPage()));
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40),
-              child: IconButton(
-                icon: Icon(Icons.shopping_basket_rounded),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BasketPage()));
-                },
-              ),
-            ),
-            IconButton(
-              icon: Icon(Icons.person),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilPage()));
-              },
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: bottomNavigations(colors: anaRenk,),
       drawer: const DrawerPage(),
     );
   }
@@ -186,3 +141,68 @@ class searchPageContainers extends StatelessWidget {
             borderRadius: BorderRadius.circular(20), color: color1));
   }
 }
+class floatingActions extends StatelessWidget {
+  const floatingActions({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  FloatingActionButton(
+      onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
+      child: Icon(
+        Icons.home,
+        color: color4,
+      ),
+      backgroundColor: color3,
+    );
+  }
+}
+
+class bottomNavigations extends StatelessWidget {
+  final Color colors;
+
+  bottomNavigations({required this.colors});
+
+  @override
+  Widget build(BuildContext context) {
+    return  BottomAppBar(
+      shape: CircularNotchedRectangle(),
+      color: colors,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {},
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 40),
+            child: IconButton(
+              icon: Icon(Icons.fastfood_rounded),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodsPage()));
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 40),
+            child: IconButton(
+              icon: Icon(Icons.shopping_basket_rounded),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+              },
+            ),
+          ),
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilPage()));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+

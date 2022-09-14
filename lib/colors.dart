@@ -7,3 +7,4 @@ var color3 = const Color(0xFF000000);
 var color4 = const Color(0xFFFFFFFF);
 var color5 = const Color(0xFF9F9D9D);
 var color6 = const Color.fromARGB(255, 231, 198, 175);
+var color7 = const Color(0xffe0e0e0);
