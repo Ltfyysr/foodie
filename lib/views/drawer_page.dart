@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/colors.dart';
+import 'package:foodie/views/home_page.dart';
 import 'package:foodie/views/landing_page.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -27,13 +28,18 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
               ),
             ),
-            drawerItems(
-                icons: Icon(
-                  Icons.home,
-                  color: color3,
-                  size: 26,
-                ),
-                text: 'Home'),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+              },
+              child: drawerItems(
+                  icons: Icon(
+                    Icons.home,
+                    color: color3,
+                    size: 26,
+                  ),
+                  text: 'Home'),
+            ),
             drawerItems(
                 icons: Icon(
                   Icons.settings,
@@ -61,7 +67,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   color: color3,
                   size: 26,
                 ),
-                text: "Whishlist"),
+                text: "Help"),
             SizedBox(height: 250),
             GestureDetector(
               onTap: () {
