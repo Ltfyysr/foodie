@@ -5,6 +5,9 @@ import 'package:foodie/views/drawer_page.dart';
 import 'package:foodie/views/foods_page.dart';
 import 'package:foodie/views/profil_page.dart';
 import 'package:foodie/views/search_page.dart';
+import 'package:foodie/views/show_categories.dart';
+import 'package:foodie/views/show_choices.dart';
+import 'package:foodie/views/show_populars.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -65,40 +68,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              Container(
-                width: 600,
-                height: 100,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      searchElevatedButtons(text: "All"),
-                      searchElevatedButtons(text: "Pizza"),
-                      searchElevatedButtons(text: "Steaks"),
-                      searchElevatedButtons(text: "Veggies"),
-
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Our Picks For You",
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold, color: color3),
-                    ),
-                    Text("See all",style: TextStyle(color: color5),)
-                  ],
-                ),
-              )
+              ShowCategories(),
+              SizedBox(height: 12),
+              mainText(text: "Our Picks For You"),
+              ShowChoices(),
+              SizedBox(height: 6),
+              mainText(text: "Most Popular"),
+              ShowPopulars(),
             ]),
       ),
       floatingActionButton: floatingActions(),
@@ -109,38 +85,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class searchElevatedButtons extends StatelessWidget {
-  final String text;
-
-  searchElevatedButtons({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      child: Text(text),
-      style: ElevatedButton.styleFrom(
-          primary: anaRenk,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          )),
-    );
-  }
-}
-
-class searchPageContainers extends StatelessWidget {
-  const searchPageContainers({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: 300,
-        height: 120,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: color1));
-  }
-}
 class floatingActions extends StatelessWidget {
   const floatingActions({Key? key}) : super(key: key);
 
@@ -206,3 +150,28 @@ class bottomNavigations extends StatelessWidget {
   }
 }
 
+class mainText extends StatelessWidget {
+  final String text;
+
+
+  mainText({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            text,
+            style: TextStyle(
+                fontSize: 18, fontWeight: FontWeight.bold, color: color3),
+          ),
+          Text("See All",style: TextStyle(color: color5),)
+        ],
+      ),
+    );
+  }
+}
