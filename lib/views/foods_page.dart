@@ -28,9 +28,9 @@ class _FoodsPageState extends State<FoodsPage> {
         backgroundColor: color4,
         title: Text(
           "Foods",
-          style: TextStyle(fontWeight: FontWeight.bold, color: anaRenk),
+          style: TextStyle(fontWeight: FontWeight.bold, color: anaRenk,fontSize: 24),
         ),
-        leading: IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));}, icon: Icon(Icons.arrow_back,color: anaRenk,)),
+        centerTitle: true,
       ),
       body: BlocBuilder<FoodsPageCubit,List<Yemekler>>(
         builder: (context,yemeklerListesi){
@@ -51,6 +51,8 @@ class _FoodsPageState extends State<FoodsPage> {
                     height: 200,
                     child: Card(
                       color: color7,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,8 +100,6 @@ class _FoodsPageState extends State<FoodsPage> {
                           )
                         ],
                       ),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
                     ),
                   ),
                 );

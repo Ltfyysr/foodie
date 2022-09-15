@@ -21,6 +21,8 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
     return Scaffold(
       backgroundColor: color6,
       appBar: AppBar(
+        title: const Text("Details",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),),
+        centerTitle: true,
         backgroundColor: color6,
         actions: [
           Padding(
