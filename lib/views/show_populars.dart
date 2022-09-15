@@ -30,7 +30,7 @@ class _ShowPopularsState extends State<ShowPopulars> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 180,
       child: Padding(
           padding: const EdgeInsets.only(left: 12),
           child: FutureBuilder<List<Populars>>(
@@ -44,36 +44,36 @@ class _ShowPopularsState extends State<ShowPopulars> {
                   itemBuilder: (context, indeks) {
                     var popular = popularsList[indeks];
                     return Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            height: 150,
-                            child: Card(
-                              elevation: 0,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                      height: 100,
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 6),
-                                        child: Image.asset("images/${popular.popularImageName}"),
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                          height: 150,
+                          child: Card(
+                            elevation: 0,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                    height: 100,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                                      child: Image.asset("images/${popular.popularImageName}"),
+                                    )),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 24),
+                                  child: Center(
+                                      child: Text(
+                                        popular.popularName,
+                                        style: const TextStyle(
+                                            fontSize: 14, fontWeight: FontWeight.bold),
+                                        maxLines: 2,
                                       )),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 24),
-                                    child: Center(
-                                        child: Text(
-                                          popular.popularName,
-                                          style: const TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.bold),
-                                          maxLines: 2,
-                                        )),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
+                        ),
+                      ],
 
                     );
                   },
