@@ -12,9 +12,6 @@ class YemeklerDaoRepository{
     return yemeklerCevap.yemekler;
   }
 
-
-
-
   Future<List<Yemekler>> tumYemekleriAl() async{
     //dio
     var url="http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php";

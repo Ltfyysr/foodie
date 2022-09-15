@@ -4,6 +4,8 @@ import 'package:foodie/colors.dart';
 import 'package:foodie/cubit/foods_page_cubit.dart';
 import 'package:foodie/views/landing_page.dart';
 
+import 'cubit/cart_page_cubit.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context)=>FoodsPageCubit()),
+        BlocProvider(create: (context)=>CartPageCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

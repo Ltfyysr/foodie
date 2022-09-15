@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/colors.dart';
+import 'package:foodie/cubit/cart_page_cubit.dart';
 
 import '../entity/yemekler.dart';
 
@@ -102,7 +104,9 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<CartPageCubit>().addToSepetWithoutCheck(widget.yemek,sayac);
+                    },
                     child: Text("ADD TO CART"),
                     style: ElevatedButton.styleFrom(
                         primary: anaRenk,
