@@ -31,12 +31,33 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding:
                 ProjectPaddings.textFieldPadding,
-                  child: shortTextField(ncontroller: tfUserName, hintText: "Username", icons: Icon(Icons.person),)
+                  child: TextField(controller: tfUserName,
+                    decoration: InputDecoration(
+                      hintText: "UserNname",
+                      hintStyle: TextStyle(color: color5),
+                      filled: true,
+                      fillColor: color4,
+                      icon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),),
               ),
               Padding(
                 padding:
                 ProjectPaddings.textFieldPadding,
-                  child: shortTextField(ncontroller: tfPassword, hintText: "Password", icons: Icon(Icons.lock),)
+                  child: TextField( obscureText: true,
+                    controller: tfPassword,
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                      hintStyle: TextStyle(color: color5),
+                      filled: true,
+                      fillColor: color4,
+                      icon: Icon(Icons.lock),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),)
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
