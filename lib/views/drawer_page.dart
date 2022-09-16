@@ -3,14 +3,15 @@ import 'package:foodie/colors.dart';
 import 'package:foodie/views/home_page.dart';
 import 'package:foodie/views/landing_page.dart';
 
+
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);
 
   @override
   State<DrawerPage> createState() => _DrawerPageState();
 }
-
 class _DrawerPageState extends State<DrawerPage> {
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -71,7 +72,7 @@ class _DrawerPageState extends State<DrawerPage> {
             SizedBox(height: 250),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
+                  Navigator.push(context,
                     MaterialPageRoute(builder: (context) => LandingPage()));
               },
               child: drawerItems(
