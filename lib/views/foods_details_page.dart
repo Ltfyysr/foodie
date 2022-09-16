@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/colors.dart';
-import 'package:foodie/cubit/cart_page_cubit.dart';
-
 import '../entity/yemekler.dart';
 
 class FoodsDetailsPage extends StatefulWidget {
@@ -105,7 +102,7 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      context.read<CartPageCubit>().addToSepetWithoutCheck(widget.yemek,sayac);
+                     // context.read<CartPageCubit>().addToSepetWithoutCheck();
                     },
                     child: Text("ADD TO CART"),
                     style: ElevatedButton.styleFrom(

@@ -31,12 +31,12 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding:
                 ProjectPaddings.textFieldPadding,
-                  child: shortTextField(ncontroller: tfUserName, hintText: "Username")
+                  child: shortTextField(ncontroller: tfUserName, hintText: "Username", icons: Icon(Icons.person),)
               ),
               Padding(
                 padding:
                 ProjectPaddings.textFieldPadding,
-                  child: shortTextField(ncontroller: tfPassword, hintText: "Password")
+                  child: shortTextField(ncontroller: tfPassword, hintText: "Password", icons: Icon(Icons.lock),)
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

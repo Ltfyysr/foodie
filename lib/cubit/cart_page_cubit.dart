@@ -4,13 +4,12 @@ import 'package:foodie/entity/yemekler.dart';
 import 'package:foodie/repo/sepetyemeklerdao_repository.dart';
 
 class CartPageCubit extends Cubit<List<SepetYemekler>>{
-
   CartPageCubit():super(<SepetYemekler>[]);
   var srepo = SepetYemeklerDaoRepository();
 
   Future<void> addToSepetWithoutCheck(
-      Yemekler yemek,  int yemek_siparis_adet) async {
-    await srepo.addToSepetWithoutCheck(yemek, yemek_siparis_adet);
+      Yemekler yemek,String kullanici_adi, int yemek_siparis_adet) async {
+    await srepo.addToSepetWithoutCheck(yemek,kullanici_adi, yemek_siparis_adet);
   }
   /*Future<void> add(Yemekler yemek,int yemek_siparis_adet) async{
    await srepo.addToSepet(yemek, yemek_siparis_adet);

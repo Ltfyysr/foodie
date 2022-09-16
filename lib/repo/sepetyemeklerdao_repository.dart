@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:foodie/entity/yemekler.dart';
-
 import '../entity/sepet_yemekler.dart';
 import '../entity/sepet_yemekler_cevap.dart';
 
@@ -15,7 +13,7 @@ class SepetYemeklerDaoRepository {
   }
 
   Future<void> addToSepetWithoutCheck(
-      Yemekler yemek,  int yemek_siparis_adet) async {
+      Yemekler yemek,String kullanici_adi, int yemek_siparis_adet) async {
     var url = "http://kasimadalan.pe.hu/yemekler/sepeteYemekEkle.php";
 
     var veri = {
@@ -23,7 +21,7 @@ class SepetYemeklerDaoRepository {
       "yemek_resim_adi": yemek.yemek_resim_adi,
       "yemek_fiyat": yemek.yemek_fiyat,
       "yemek_siparis_adet": yemek_siparis_adet,
-      //"kullanici_adi": kullanici_adi
+      "kullanici_adi": kullanici_adi
     };
 
     var cevap = await Dio().post(url, data: FormData.fromMap(veri));
