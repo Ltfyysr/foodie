@@ -53,12 +53,36 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),),
               Padding(
                   padding: ProjectPaddings.textFieldPadding,
-                  child: shortTextField(
-                      ncontroller: tfUserName, hintText: "Username", icons: Icon(Icons.person),)),
+                  child: TextField(
+                    controller: tfUserName,
+                    decoration: InputDecoration(
+                      hintText: "UserNname",
+                      hintStyle: TextStyle(color: color5),
+                      filled: true,
+                      fillColor: color4,
+                      icon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  )),
               Padding(
                   padding: ProjectPaddings.textFieldPadding,
-                  child: shortTextField(
-                      ncontroller: tfPassword, hintText: "Password", icons: Icon(Icons.lock),)),
+                  child: TextField(
+                    obscureText: true,
+                    controller: tfPassword,
+                    decoration: InputDecoration(
+                      hintText: "Password",
+                      hintStyle: TextStyle(color: color5),
+                      filled: true,
+                      fillColor: color4,
+                      icon: Icon(Icons.lock),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  )
+              ),
 
             Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -128,16 +152,16 @@ class _RegisterPageState extends State<RegisterPage> {
             child: CircularProgressIndicator(),
           );
         });
-    try{
+    try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: tfEmail.text,
           password: tfPassword.text);
 
-      try{
+      try {
         FirebaseAuth auth = FirebaseAuth.instance;
         var userId = auth.currentUser!.uid;
 
-        final doc =  FirebaseFirestore.instance.collection("users").doc(userId);
+        final doc = FirebaseFirestore.instance.collection("users").doc(userId);
         final json = {
           'email': tfEmail.text,
           'userName': tfUserName.text,
@@ -148,25 +172,53 @@ class _RegisterPageState extends State<RegisterPage> {
             email: tfEmail.text,
             userName: tfUserName.text,
             timeStamp: DateTime.now());
-        var newJson= user.toJson();
+        var newJson = user.toJson();
         await doc.set(newJson);
-
-      }catch(Exception ){}
+      } catch (Exception) {}
       AwesomeDialog(
           context: context,
           dialogType: DialogType.SUCCES,
           animType: AnimType.SCALE,
-          title: "Başarılı",
-          desc: "Hesabınız başarılı bir şekilde oluşturuldu!",
+          title: "Congratulations!",
+          desc: "Your account has been successfully created",
+          btnOkColor: Colors.green,
           btnOkOnPress: () {
+            Navigator.pop(context);
             //navigatorKey.currentState!.pop(context);
           })
         ..show();
-        Navigator.pushReplacement(context,
+      Navigator.pushReplacement(context,
           (MaterialPageRoute(
-           builder: (context) => RegistrationSuccessPage(
-              firstTimeLogin: true,
-             ))));
+              builder: (context) =>
+                  RegistrationSuccessPage(
+                    firstTimeLogin: true,
+                  ))));
+    } on FirebaseAuthException catch (e) {
+     print(e.message);
+
+     if (e.code == "email-already-in-use") {
+      AwesomeDialog(
+          context: context,
+          dialogType: DialogType.ERROR,
+          animType: AnimType.SCALE,
+          title: "Warning!",
+          desc: "Such an account already exists",
+          btnOkColor: Colors.red,
+          btnOkOnPress: () {
+            Navigator.pop(context);
+          })
+        ..show();
+    } else {
+       AwesomeDialog(
+           context: context,
+           dialogType: DialogType.ERROR,
+           animType: AnimType.SCALE,
+           title: "Warning!",
+           desc: "You entered incorrect information",
+           btnOkColor: Colors.red,
+           btnOkOnPress: () {})
+         ..show();
+    }
     } finally{}
   }
 
@@ -178,33 +230,6 @@ class _RegisterPageState extends State<RegisterPage> {
 }
 
 
-class shortTextField extends StatelessWidget {
-  const shortTextField({
-    Key? key,
-    required this.ncontroller,
-    required this.hintText, required this.icons,
-  }) : super(key: key);
-
-  final TextEditingController ncontroller;
-  final String hintText;
-  final Icon icons;
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: ncontroller,
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: TextStyle(color: color5),
-        filled: true,
-        fillColor: color4,
-        icon: icons,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
-    );
-  }
-}
 
 class ProjectPaddings {
   static const textFieldPadding =
