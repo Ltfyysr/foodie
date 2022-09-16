@@ -98,9 +98,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             dialogType: DialogType.ERROR,
                             title: "Warning!",
                             desc: "Please fill in all fields",
-                            btnOkColor: anaRenk,
+                            btnOkColor: color8,
                             btnOkOnPress: () {Navigator.pop(context);})
-                          ..show();
+                          .show();
 
                       } else if (tfPassword.text.length <8 ) {
                         AwesomeDialog(
@@ -111,7 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             desc: "The password you enter must be at least 8 characters long!",
                             btnOkColor: color8,
                             btnOkOnPress: () {Navigator.pop(context);})
-                          ..show();
+                          .show();
                       } else {
                         if (!emailValid(tfEmail.text)) {
                           AwesomeDialog(
@@ -122,7 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               desc: "Please enter a valid email!",
                               btnOkColor: color8,
                               btnOkOnPress: () {Navigator.pop(context);})
-                            ..show();
+                            .show();
                         } else {
                           signUp();
                         }
@@ -135,8 +135,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               borderRadius: BorderRadius.circular(20))),
                   ),
                 )),
-
-
             ],
           ),
         ),
@@ -196,7 +194,7 @@ class _RegisterPageState extends State<RegisterPage> {
           btnOkOnPress: () {
             Navigator.pop(context);
           })
-        ..show();
+        .show();
     } else {
        AwesomeDialog(
            context: context,
@@ -206,7 +204,7 @@ class _RegisterPageState extends State<RegisterPage> {
            desc: "You entered incorrect information",
            btnOkColor: color8,
            btnOkOnPress: () {})
-         ..show();
+         .show();
     }
     } finally{}
   }
@@ -217,9 +215,6 @@ class _RegisterPageState extends State<RegisterPage> {
         .hasMatch(email);
   }
 }
-
-
-
 class ProjectPaddings {
   static const textFieldPadding =
       EdgeInsets.symmetric(horizontal: 40, vertical: 10);
