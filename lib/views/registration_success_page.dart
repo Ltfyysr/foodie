@@ -3,7 +3,7 @@ import 'package:foodie/colors.dart';
 import 'package:foodie/views/login_page.dart';
 
 class RegistrationSuccessPage extends StatefulWidget {
-  const RegistrationSuccessPage({Key? key}) : super(key: key);
+  const RegistrationSuccessPage({Key? key, required bool firstTimeLogin}) : super(key: key);
 
   @override
   State<RegistrationSuccessPage> createState() =>
