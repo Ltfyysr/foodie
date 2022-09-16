@@ -99,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             title: "Warning!",
                             desc: "Please fill in all fields",
                             btnOkColor: anaRenk,
-                            btnOkOnPress: () {})
+                            btnOkOnPress: () {Navigator.pop(context);})
                           ..show();
 
                       } else if (tfPassword.text.length <8 ) {
@@ -109,8 +109,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             animType: AnimType.SCALE,
                             title: "Error!",
                             desc: "The password you enter must be at least 8 characters long!",
-                            btnOkColor: Colors.red,
-                            btnOkOnPress: () {})
+                            btnOkColor: color8,
+                            btnOkOnPress: () {Navigator.pop(context);})
                           ..show();
                       } else {
                         if (!emailValid(tfEmail.text)) {
@@ -120,8 +120,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               animType: AnimType.SCALE,
                               title: "Warning!",
                               desc: "Please enter a valid email!",
-                              btnOkColor: Colors.red,
-                              btnOkOnPress: () {})
+                              btnOkColor: color8,
+                              btnOkOnPress: () {Navigator.pop(context);})
                             ..show();
                         } else {
                           signUp();
@@ -175,18 +175,7 @@ class _RegisterPageState extends State<RegisterPage> {
         var newJson = user.toJson();
         await doc.set(newJson);
       } catch (Exception) {}
-      AwesomeDialog(
-          context: context,
-          dialogType: DialogType.SUCCES,
-          animType: AnimType.SCALE,
-          title: "Congratulations!",
-          desc: "Your account has been successfully created",
-          btnOkColor: Colors.green,
-          btnOkOnPress: () {
-            Navigator.pop(context);
-            //navigatorKey.currentState!.pop(context);
-          })
-        ..show();
+
       Navigator.pushReplacement(context,
           (MaterialPageRoute(
               builder: (context) =>
@@ -203,7 +192,7 @@ class _RegisterPageState extends State<RegisterPage> {
           animType: AnimType.SCALE,
           title: "Warning!",
           desc: "Such an account already exists",
-          btnOkColor: Colors.red,
+          btnOkColor: color8,
           btnOkOnPress: () {
             Navigator.pop(context);
           })
@@ -215,7 +204,7 @@ class _RegisterPageState extends State<RegisterPage> {
            animType: AnimType.SCALE,
            title: "Warning!",
            desc: "You entered incorrect information",
-           btnOkColor: Colors.red,
+           btnOkColor: color8,
            btnOkOnPress: () {})
          ..show();
     }
