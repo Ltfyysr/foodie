@@ -141,6 +141,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+
   Future signUp() async{
     showDialog(
         context: context,
@@ -172,6 +173,7 @@ class _RegisterPageState extends State<RegisterPage> {
             timeStamp: DateTime.now());
         var newJson = user.toJson();
         await doc.set(newJson);
+
       } catch (Exception) {}
 
       Navigator.pushReplacement(context,
@@ -181,31 +183,31 @@ class _RegisterPageState extends State<RegisterPage> {
                     firstTimeLogin: true,
                   ))));
     } on FirebaseAuthException catch (e) {
-     print(e.message);
+      print(e.message);
 
-     if (e.code == "email-already-in-use") {
-      AwesomeDialog(
-          context: context,
-          dialogType: DialogType.ERROR,
-          animType: AnimType.SCALE,
-          title: "Warning!",
-          desc: "Such an account already exists",
-          btnOkColor: color8,
-          btnOkOnPress: () {
-            Navigator.pop(context);
-          })
-        .show();
-    } else {
-       AwesomeDialog(
-           context: context,
-           dialogType: DialogType.ERROR,
-           animType: AnimType.SCALE,
-           title: "Warning!",
-           desc: "You entered incorrect information",
-           btnOkColor: color8,
-           btnOkOnPress: () {})
-         .show();
-    }
+      if (e.code == "email-already-in-use") {
+        AwesomeDialog(
+            context: context,
+            dialogType: DialogType.ERROR,
+            animType: AnimType.SCALE,
+            title: "Warning!",
+            desc: "Such an account already exists",
+            btnOkColor: color8,
+            btnOkOnPress: () {
+              Navigator.pop(context);
+            })
+            .show();
+      } else {
+        AwesomeDialog(
+            context: context,
+            dialogType: DialogType.ERROR,
+            animType: AnimType.SCALE,
+            title: "Warning!",
+            desc: "You entered incorrect information",
+            btnOkColor: color8,
+            btnOkOnPress: () {})
+            .show();
+      }
     } finally{}
   }
 
