@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie/colors.dart';
+import '../cubit/cart_page_cubit.dart';
 import '../entity/yemekler.dart';
+import '../repo/usersdao_repository.dart';
 
 class FoodsDetailsPage extends StatefulWidget {
   Yemekler yemek;
+
 
   FoodsDetailsPage({required this.yemek});
 
@@ -12,7 +16,13 @@ class FoodsDetailsPage extends StatefulWidget {
 }
 
 class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
+  var urepo = UserRepository();
   late int sayac = 1;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +30,10 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
     return Scaffold(
       backgroundColor: color6,
       appBar: AppBar(
-        title: const Text("Details",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),),
+        title: const Text(
+          "Details",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         backgroundColor: color6,
         actions: [
@@ -36,7 +49,8 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
             width: 500,
             height: 280,
             child: Image.network(
-                "http://kasimadalan.pe.hu/yemekler/resimler/${yemek.yemek_resim_adi}"),
+                "http://kasimadalan.pe.hu/yemekler/resimler/${yemek
+                    .yemek_resim_adi}"),
           ),
           Container(
             width: 500,
@@ -93,7 +107,7 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                     Text(
                       "${int.parse(yemek.yemek_fiyat) * sayac} ₺",
                       style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -102,7 +116,23 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                     // context.read<CartPageCubit>().addToSepetWithoutCheck();
+                      urepo.getUserId().then((userId) {
+                        urepo.getUser(userId).then((user) {
+                          print(user.email);
+                          print(user.userName);
+                          print(widget.yemek.yemek_adi);
+                          print(widget.yemek.yemek_fiyat);
+                          print(sayac);
+                          context
+                              .read<CartPageCubit>()
+                              .add(widget.yemek, user.userName, sayac).then((
+                              value) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text("${widget.yemek
+                                    .yemek_adi} sepete eklendi")));
+                          });
+                        });
+                      });
                     },
                     child: Text("ADD TO CART"),
                     style: ElevatedButton.styleFrom(

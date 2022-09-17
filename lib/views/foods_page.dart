@@ -43,7 +43,7 @@ class _FoodsPageState extends State<FoodsPage> {
                 var yemek = yemeklerListesi[index];
                 return GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodsDetailsPage(yemek: yemek,)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodsDetailsPage(yemek: yemek)));
                   },
                   child: Container(
                     margin: EdgeInsets.all(10),
