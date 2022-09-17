@@ -7,17 +7,13 @@ class CartPageCubit extends Cubit<List<SepetYemekler>>{
   CartPageCubit():super(<SepetYemekler>[]);
   var srepo = SepetYemeklerDaoRepository();
 
-  Future<void> addToSepetWithoutCheck(
+  Future<void> add(
       Yemekler yemek,String kullanici_adi, int yemek_siparis_adet) async {
-    await srepo.addToSepetWithoutCheck(yemek,kullanici_adi, yemek_siparis_adet);
-  }
-  /*Future<void> add(Yemekler yemek,int yemek_siparis_adet) async{
-   await srepo.addToSepet(yemek, yemek_siparis_adet);
-  }*/
-
-  Future<void> sepettekileriGetir() async {
-    var liste = await srepo.getBasket();
-    emit(liste);
+    await srepo.addToSepet(yemek,kullanici_adi, yemek_siparis_adet);
   }
 
+  Future<void> sepettekileriGetir(String kullanici_adi) async {
+    var liste = await srepo.getBasket(kullanici_adi);
+      emit(liste);
+  }
 }

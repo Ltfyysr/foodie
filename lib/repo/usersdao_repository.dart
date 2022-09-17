@@ -19,12 +19,9 @@ class UserRepository {
   Future<String> getUserName() async {
     var userAuth = FirebaseAuth.instance.currentUser!.uid;
     var db = FirebaseFirestore.instance;
-//
     final ref = await db.collection("users").doc(userAuth).get();
     final user = ref.data();
     final userMapped = Users.fromJson(user!);
-
-
     return userMapped.userName;
   }
 }
