@@ -120,11 +120,6 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                     onPressed: () {
                       urepo.getUserId().then((userId) {
                         urepo.getUser(userId).then((user) {
-                          print(user.email);
-                          print(user.userName);
-                          print(widget.yemek.yemek_adi);
-                          print(widget.yemek.yemek_fiyat);
-                          print(total);
                           context
                               .read<CartPageCubit>()
                               .add(widget.yemek, user.userName, yemek_siparis_adet).then((
