@@ -17,7 +17,7 @@ class FoodsDetailsPage extends StatefulWidget {
 
 class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
   var urepo = UserRepository();
-  late int sayac = 1;
+  late int yemek_siparis_adet = 1;
 
   @override
   void initState() {
@@ -26,7 +26,9 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
+
     var yemek = widget.yemek;
+    int total = int.parse(yemek.yemek_fiyat) * yemek_siparis_adet;
     return Scaffold(
       backgroundColor: color6,
       appBar: AppBar(
@@ -80,18 +82,18 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                           IconButton(
                               onPressed: () {
                                 setState(() {
-                                  sayac != 1 ? sayac -= 1 : sayac;
+                                  yemek_siparis_adet != 1 ? yemek_siparis_adet -= 1 : yemek_siparis_adet;
                                 });
                               },
                               icon: Icon(
                                 Icons.remove,
                                 color: anaRenk,
                               )),
-                          Text("$sayac"),
+                          Text("$yemek_siparis_adet"),
                           IconButton(
                               onPressed: () {
                                 setState(() {
-                                  sayac += 1;
+                                  yemek_siparis_adet += 1;
                                 });
                               },
                               icon: Icon(
@@ -105,7 +107,7 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                           color: color7),
                     ),
                     Text(
-                      "${int.parse(yemek.yemek_fiyat) * sayac} ₺",
+                      "${total} ₺",
                       style:
                       TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
@@ -122,10 +124,10 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                           print(user.userName);
                           print(widget.yemek.yemek_adi);
                           print(widget.yemek.yemek_fiyat);
-                          print(sayac);
+                          print(total);
                           context
                               .read<CartPageCubit>()
-                              .add(widget.yemek, user.userName, sayac).then((
+                              .add(widget.yemek, user.userName, yemek_siparis_adet).then((
                               value) {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content: Text("${widget.yemek

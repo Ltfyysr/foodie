@@ -9,7 +9,7 @@ class SepetYemeklerDaoRepository {
   List<SepetYemekler> parseSepetYemeklerCevap(String cevap) {
     var jsonVeri = json.decode(cevap);
     var sepetYemeklerCevap = SepetYemeklerCevap.fromJson(jsonVeri);
-    return sepetYemeklerCevap.sepetYemekler;
+    return sepetYemeklerCevap.sepet_yemekler;
   }
 
   Future<void> addToSepet(
@@ -32,6 +32,7 @@ class SepetYemeklerDaoRepository {
     var url="http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php";
     var veri = {"kullanici_adi": kullanici_adi};
     var cevap = await Dio().post(url, data: FormData.fromMap(veri));
+    print("Sepettekileri getir: ${cevap.data.toString()}");
     return  parseSepetYemeklerCevap(cevap.data.toString());
   }
 }

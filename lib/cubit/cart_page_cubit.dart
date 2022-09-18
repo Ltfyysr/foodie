@@ -4,7 +4,7 @@ import 'package:foodie/entity/yemekler.dart';
 import 'package:foodie/repo/sepetyemeklerdao_repository.dart';
 
 class CartPageCubit extends Cubit<List<SepetYemekler>>{
-  CartPageCubit():super(<SepetYemekler>[]);
+  CartPageCubit():super([]);
   var srepo = SepetYemeklerDaoRepository();
 
   Future<void> add(
