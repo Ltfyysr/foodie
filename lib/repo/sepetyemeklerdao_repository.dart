@@ -34,6 +34,13 @@ class SepetYemeklerDaoRepository {
     var cevap = await Dio().post(url, data: FormData.fromMap(veri));
     return  parseSepetYemeklerCevap(cevap.data.toString());
   }
+
+  Future<void> deleteFoods(String sepet_yemek_id,String kullanici_adi) async {
+  var url ="http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php";
+  var veri={"sepet_yemek_id": sepet_yemek_id,"kullanici_adi":kullanici_adi};
+  var cevap = await Dio().post(url,data: FormData.fromMap(veri));
+  print("Yemek sil: ${cevap.data.toString()}");
+}
 }
 
 

@@ -99,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             title: "Warning!",
                             desc: "Please fill in all fields",
                             btnOkColor: color8,
-                            btnOkOnPress: () {Navigator.pop(context);})
+                            btnOkOnPress: () {})
                           .show();
 
                       } else if (tfPassword.text.length <8 ) {
@@ -110,7 +110,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             title: "Error!",
                             desc: "The password you enter must be at least 8 characters long!",
                             btnOkColor: color8,
-                            btnOkOnPress: () {Navigator.pop(context);})
+                            btnOkOnPress: () {})
                           .show();
                       } else {
                         if (!emailValid(tfEmail.text)) {
@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               title: "Warning!",
                               desc: "Please enter a valid email!",
                               btnOkColor: color8,
-                              btnOkOnPress: () {Navigator.pop(context);})
+                              btnOkOnPress: () {})
                             .show();
                         } else {
                           signUp();

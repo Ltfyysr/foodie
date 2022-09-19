@@ -12,8 +12,13 @@ class CartPageCubit extends Cubit<List<SepetYemekler>>{
     await srepo.addToSepet(yemek,kullanici_adi, yemek_siparis_adet);
   }
 
-  Future<void> sepettekileriGetir(String kullanici_adi) async {
+  Future<void> get(String kullanici_adi) async {
     var liste = await srepo.getBasket(kullanici_adi);
       emit(liste);
+  }
+  Future<void> delete(String sepet_yemek_id,String kullanici_adi) async{
+    var liste = await srepo.deleteFoods(sepet_yemek_id, kullanici_adi);
+    await get(kullanici_adi);
+
   }
 }
