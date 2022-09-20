@@ -20,11 +20,6 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
   late int yemek_siparis_adet = 1;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
 
     var yemek = widget.yemek;

@@ -118,7 +118,8 @@ class bottomNavigations extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: Icon(Icons.notifications),
-            onPressed: () {},
+            onPressed: () {
+            },
           ),
           Padding(
             padding: const EdgeInsets.only(right: 40),
