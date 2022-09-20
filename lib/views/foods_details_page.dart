@@ -59,103 +59,105 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                   icon: Icon(Icons.favorite,color: Colors.red))),
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            width: 500,
-            height: 280,
-            child: Image.network(
-                "http://kasimadalan.pe.hu/yemekler/resimler/${yemek
-                    .yemek_resim_adi}"),
-          ),
-          Container(
-            width: 500,
-            height: 393,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50), topRight: Radius.circular(50)),
-              color: color4,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: 500,
+              height: 280,
+              child: Image.network(
+                  "http://kasimadalan.pe.hu/yemekler/resimler/${yemek
+                      .yemek_resim_adi}"),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  yemek.yemek_adi,
-                  style: TextStyle(
-                      fontSize: 24, color: color3, fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      width: 150,
-                      height: 50,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  yemek_siparis_adet != 1 ? yemek_siparis_adet -= 1 : yemek_siparis_adet;
-                                });
-                              },
-                              icon: Icon(
-                                Icons.remove,
-                                color: anaRenk,
-                              )),
-                          Text("$yemek_siparis_adet"),
-                          IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  yemek_siparis_adet += 1;
-                                });
-                              },
-                              icon: Icon(
-                                Icons.add,
-                                color: anaRenk,
-                              ))
-                        ],
+            Container(
+              width: 500,
+              height: 393,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50), topRight: Radius.circular(50)),
+                color: color4,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    yemek.yemek_adi,
+                    style: TextStyle(
+                        fontSize: 24, color: color3, fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 150,
+                        height: 50,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    yemek_siparis_adet != 1 ? yemek_siparis_adet -= 1 : yemek_siparis_adet;
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.remove,
+                                  color: anaRenk,
+                                )),
+                            Text("$yemek_siparis_adet"),
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    yemek_siparis_adet += 1;
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.add,
+                                  color: anaRenk,
+                                ))
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                            color: color7),
                       ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(18),
-                          color: color7),
-                    ),
-                    Text(
-                      "${total} ₺",
-                      style:
-                      TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 200,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      urepo.getUserId().then((userId) {
-                        urepo.getUser(userId).then((user) {
-                          context
-                              .read<CartPageCubit>()
-                              .add(widget.yemek, user.userName, yemek_siparis_adet).then((
-                              value) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text("${widget.yemek
-                                    .yemek_adi} sepete eklendi")));
+                      Text(
+                        "${total} ₺",
+                        style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 200,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        urepo.getUserId().then((userId) {
+                          urepo.getUser(userId).then((user) {
+                            context
+                                .read<CartPageCubit>()
+                                .add(widget.yemek, user.userName, yemek_siparis_adet).then((
+                                value) {
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text("${widget.yemek
+                                      .yemek_adi} sepete eklendi")));
+                            });
                           });
                         });
-                      });
-                    },
-                    child: Text("ADD TO CART"),
-                    style: ElevatedButton.styleFrom(
-                        primary: anaRenk,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                  ),
-                )
-              ],
+                      },
+                      child: Text("ADD TO CART"),
+                      style: ElevatedButton.styleFrom(
+                          primary: anaRenk,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

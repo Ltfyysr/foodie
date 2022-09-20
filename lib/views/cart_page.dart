@@ -7,7 +7,7 @@ import 'package:foodie/entity/yemekler.dart';
 import 'package:foodie/repo/usersdao_repository.dart';
 import 'package:foodie/views/foods_details_page.dart';
 import 'package:foodie/views/home_page.dart';
-import 'package:foodie/views/location_page.dart';
+import 'package:foodie/views/payment_page.dart';
 
 
 class CartPage extends StatefulWidget {
@@ -163,7 +163,7 @@ class _CartPageState extends State<CartPage> {
                             }),
 
                             TextButton(child: Text("Yes"),onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>LocationPage()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
                             }),
                           ],
                         )
@@ -175,7 +175,7 @@ class _CartPageState extends State<CartPage> {
               "Confirm Cart",
               style: TextStyle(fontSize: 20),
             ),
-            style: ElevatedButton.styleFrom(primary: color2),
+            style: ElevatedButton.styleFrom(primary: anaRenk),
           ),
         ),
       ),

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:foodie/colors.dart';
 import 'package:foodie/views/home_page.dart';
 import 'package:foodie/views/landing_page.dart';
+import 'package:foodie/views/profil_page.dart';
 
 
 class DrawerPage extends StatefulWidget {
+
   const DrawerPage({Key? key}) : super(key: key);
 
   @override
@@ -14,6 +16,7 @@ class _DrawerPageState extends State<DrawerPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Drawer(
        // backgroundColor: color4,
         child: ListView(
@@ -23,9 +26,13 @@ class _DrawerPageState extends State<DrawerPage> {
               color: anaRenk,
               child: DrawerHeader(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text("Hello")],
+                  children: [
+                    GestureDetector(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilPage()));
+                    },child: CircleAvatar(backgroundImage: AssetImage("images/profil.png"),maxRadius: 28,)),
+                  ],
                 ),
               ),
             ),
