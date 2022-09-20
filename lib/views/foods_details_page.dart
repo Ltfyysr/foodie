@@ -18,7 +18,7 @@ class FoodsDetailsPage extends StatefulWidget {
 class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
   var urepo = UserRepository();
   late int yemek_siparis_adet = 1;
-
+  bool favoriteButton = true;
   @override
   Widget build(BuildContext context) {
 
@@ -35,9 +35,28 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
         backgroundColor: color6,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 14.0),
-            child: Icon(Icons.favorite_rounded),
-          ),
+              padding: const EdgeInsets.all(8.0),
+              child: favoriteButton
+                  ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      favoriteButton = false;
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text("${widget.yemek
+                            .yemek_adi} favorilere eklendi")));
+                  },
+                  icon: Icon(Icons.favorite_border_outlined))
+                  : IconButton(
+                  onPressed: () {
+                    setState(() {
+                      favoriteButton = true;
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("${widget.yemek
+                              .yemek_adi} favorilerden kaldırıldı")));
+                    });
+                  },
+                  icon: Icon(Icons.favorite,color: Colors.red))),
         ],
       ),
       body: Column(
