@@ -19,7 +19,7 @@ class _FoodsPageState extends State<FoodsPage> {
   @override
   void initState() {
     super.initState();
-    context.read<FoodsPageCubit>().yemekleriGetir();
+    context.read<FoodsPageCubit>().getFoods();
   }
   @override
   Widget build(BuildContext context) {

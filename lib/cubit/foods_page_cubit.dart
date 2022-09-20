@@ -8,8 +8,12 @@ class FoodsPageCubit extends Cubit<List<Yemekler>>{
 
   var yrepo = YemeklerDaoRepository();
 
-  Future<void> yemekleriGetir() async{
+  Future<void> getFoods() async{
     var liste = await yrepo.tumYemekleriAl();
+    emit(liste);
+  }
+  Future<void> search(String aramaKelimesi) async{
+    var liste = await yrepo.searchFoods(aramaKelimesi);
     emit(liste);
   }
 }
