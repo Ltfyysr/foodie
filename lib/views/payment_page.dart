@@ -11,6 +11,8 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
+  int radioDeger1 =0;
+  int radioDeger2 =0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,11 +47,43 @@ class _PaymentPageState extends State<PaymentPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 22),
                       child: Container(
                         width: 350,
-                        height: 150,
+                        height: 180,
                         color: color9,
                         child: Column(
                           children: [
-
+                           RadioListTile(
+                             title: Text("Online payment"),
+                               value: 1,
+                               groupValue: radioDeger1,
+                               activeColor: anaRenk,
+                               onChanged: (int? veri){
+                               setState((){
+                                 radioDeger1=veri!;
+                               });
+                               }
+                               ),
+                            RadioListTile(
+                             title: Text("Cash on delivery"),
+                               value: 2,
+                               groupValue: radioDeger1,
+                               activeColor: anaRenk,
+                               onChanged: (int? veri){
+                               setState((){
+                                 radioDeger1=veri!;
+                               });
+                               }
+                               ),
+                            RadioListTile(
+                             title: Text("Card on delivery"),
+                               value: 3,
+                               groupValue: radioDeger1,
+                               activeColor: anaRenk,
+                               onChanged: (int? veri){
+                               setState((){
+                                 radioDeger1=veri!;
+                               });
+                               }
+                               ),
                           ],
                         ),
                       ),
@@ -62,10 +96,32 @@ class _PaymentPageState extends State<PaymentPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 22),
                       child: Container(
                         width: 350,
-                        height: 100,
+                        height: 120,
                         color: color9,
                         child: Column(
                           children: [
+                            RadioListTile(
+                                title: Text("Now"),
+                                value: 1,
+                                groupValue: radioDeger2,
+                                activeColor: anaRenk,
+                                onChanged: (int? veri){
+                                  setState((){
+                                    radioDeger2=veri!;
+                                  });
+                                }
+                            ),
+                            RadioListTile(
+                                title: Text("18:00"),
+                                value: 2,
+                                groupValue: radioDeger2,
+                                activeColor: anaRenk,
+                                onChanged: (int? veri){
+                                  setState((){
+                                    radioDeger2=veri!;
+                                  });
+                                }
+                            ),
                           ],
                         ),
                       ),
@@ -100,3 +156,4 @@ class _PaymentPageState extends State<PaymentPage> {
     );
   }
 }
+
