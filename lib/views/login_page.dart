@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Container(
                   width: 300,
-                  height: 400,
+                  height: 350,
                   child: Image.asset("images/login.png")),
               SizedBox(height: 20),
               Padding(

@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               Container(
                   width: 300,
-                  height: 300,
+                  height: 250,
                   child: Image.asset("images/register.png")),
               Padding(
                 padding: ProjectPaddings.textFieldPadding,

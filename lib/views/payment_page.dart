@@ -142,7 +142,7 @@ class _PaymentPageState extends State<PaymentPage> {
                         },
                         child: Text(
                           "Confirm and Finish",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          style: TextStyle(fontFamily: "OpenSans-regular",fontWeight: FontWeight.bold, fontSize: 18),
                         ),style: ElevatedButton.styleFrom(primary: anaRenk),),
                     )
                   ],

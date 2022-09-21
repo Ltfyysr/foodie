@@ -51,7 +51,7 @@ class _ShowCategoriesState extends State<ShowCategories> {
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text("${categori.categoriName}"),
+                        child: Text("${categori.categoriName}",style: TextStyle(fontFamily: "Roboto-regular"),),
                         style: ElevatedButton.styleFrom(
                             primary: anaRenk,
                             elevation: 0,

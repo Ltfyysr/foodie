@@ -65,7 +65,7 @@ class _ShowPopularsState extends State<ShowPopulars> {
                                       child: Text(
                                         popular.popularName,
                                         style: const TextStyle(
-                                            fontSize: 14, fontWeight: FontWeight.bold),
+                                            fontSize: 14, fontWeight: FontWeight.bold,fontFamily: "OpenSans-regular"),
                                         maxLines: 2,
                                       )),
                                 ),

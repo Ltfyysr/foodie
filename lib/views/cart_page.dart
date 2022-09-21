@@ -45,7 +45,7 @@ class _CartPageState extends State<CartPage> {
             icon: Icon(Icons.arrow_back, color: anaRenk)),
         title: Text("My Basket",
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: anaRenk)),
+                fontSize: 20,fontFamily: "OpenSans-regular", fontWeight: FontWeight.bold, color: anaRenk)),
         centerTitle: true,
       ),
       body: BlocBuilder<CartPageCubit, List<SepetYemekler>>(
@@ -173,7 +173,7 @@ class _CartPageState extends State<CartPage> {
             },
             child: Text(
               "Confirm Cart",
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20,fontFamily: "OpenSans-regular"),
             ),
             style: ElevatedButton.styleFrom(primary: anaRenk),
           ),

@@ -28,7 +28,7 @@ class _FoodsPageState extends State<FoodsPage> {
         backgroundColor: color4,
         title: Text(
           "Foods",
-          style: TextStyle(fontWeight: FontWeight.bold, color: anaRenk,fontSize: 24),
+          style: TextStyle(fontWeight: FontWeight.bold,fontFamily: "OpenSans-regular", color: anaRenk,fontSize: 24),
         ),
         centerTitle: true,
       ),

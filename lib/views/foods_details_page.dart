@@ -29,7 +29,7 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
       appBar: AppBar(
         title: const Text(
           "Details",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,fontFamily: "OpenSans-regular"),
         ),
         centerTitle: true,
         backgroundColor: color6,
@@ -128,29 +128,32 @@ class _FoodsDetailsPageState extends State<FoodsDetailsPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 200,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        urepo.getUserId().then((userId) {
-                          urepo.getUser(userId).then((user) {
-                            context
-                                .read<CartPageCubit>()
-                                .add(widget.yemek, user.userName, yemek_siparis_adet).then((
-                                value) {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                  content: Text("${widget.yemek
-                                      .yemek_adi} sepete eklendi")));
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 28.0),
+                    child: SizedBox(
+                      width: 200,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          urepo.getUserId().then((userId) {
+                            urepo.getUser(userId).then((user) {
+                              context
+                                  .read<CartPageCubit>()
+                                  .add(widget.yemek, user.userName, yemek_siparis_adet).then((
+                                  value) {
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    content: Text("${widget.yemek
+                                        .yemek_adi} sepete eklendi")));
+                              });
                             });
                           });
-                        });
-                      },
-                      child: Text("ADD TO CART"),
-                      style: ElevatedButton.styleFrom(
-                          primary: anaRenk,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
+                        },
+                        child: Text("ADD TO CART",style: TextStyle(fontFamily: "OpenSans-regular"),),
+                        style: ElevatedButton.styleFrom(
+                            primary: anaRenk,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10))),
+                      ),
                     ),
                   )
                 ],

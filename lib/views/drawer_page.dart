@@ -76,7 +76,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   size: 26,
                 ),
                 text: "Help"),
-            SizedBox(height: 250),
+            SizedBox(height: 180),
             GestureDetector(
               onTap: () {
                   Navigator.push(context,
@@ -117,7 +117,7 @@ class drawerItems extends StatelessWidget {
           ),
           Text(
             text,
-            style: TextStyle(color: color3, fontSize: 14),
+            style: TextStyle(color: color3, fontSize: 14,fontFamily: "Poppins-600"),
           ),
         ],
       ),

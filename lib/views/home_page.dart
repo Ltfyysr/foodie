@@ -69,10 +69,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               ShowCategories(),
-              SizedBox(height: 12),
               mainText(text: "Our Picks For You"),
               ShowChoices(),
-              SizedBox(height: 6),
               mainText(text: "Most Popular"),
               ShowPopulars(),
             ]),
@@ -160,7 +158,7 @@ class mainText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,9 +166,9 @@ class mainText extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-                fontSize: 18, fontWeight: FontWeight.bold, color: color3),
+                fontSize: 18, fontWeight: FontWeight.bold,fontFamily: "Poppins-700", color: color3),
           ),
-          Text("See All",style: TextStyle(color: color5),)
+          Text("See All",style: TextStyle(color: color5,fontFamily: "Poppins-300"),)
         ],
       ),
     );
