@@ -115,7 +115,7 @@ class bottomNavigations extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.receipt),
             onPressed: () {
             },
           ),

@@ -16,6 +16,7 @@ class _ProfilPageState extends State<ProfilPage> {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(30.0),
