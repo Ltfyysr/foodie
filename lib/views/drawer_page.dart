@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodie/colors.dart';
 import 'package:foodie/views/home_page.dart';
 import 'package:foodie/views/landing_page.dart';
+import 'package:foodie/views/location_page.dart';
 import 'package:foodie/views/profil_page.dart';
 
 
@@ -55,13 +56,19 @@ class _DrawerPageState extends State<DrawerPage> {
                   size: 26,
                 ),
                 text: 'Settings'),
-            drawerItems(
-                icons: Icon(
-                  Icons.location_on_rounded,
-                  color: color3,
-                  size: 26,
-                ),
-                text: 'Location'),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LocationPage()));
+              },
+              child: drawerItems(
+                  icons: Icon(
+                    Icons.location_on_rounded,
+                    color: color3,
+                    size: 26,
+                  ),
+                  text: 'Location'),
+            ),
             drawerItems(
                 icons: Icon(
                   Icons.notifications,

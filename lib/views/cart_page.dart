@@ -7,7 +7,7 @@ import 'package:foodie/entity/yemekler.dart';
 import 'package:foodie/repo/usersdao_repository.dart';
 import 'package:foodie/views/foods_details_page.dart';
 import 'package:foodie/views/home_page.dart';
-import 'package:foodie/views/payment_page.dart';
+import 'package:foodie/views/location_page.dart';
 
 
 class CartPage extends StatefulWidget {
@@ -43,7 +43,7 @@ class _CartPageState extends State<CartPage> {
                   context, MaterialPageRoute(builder: (context) => HomePage()));
             },
             icon: Icon(Icons.arrow_back, color: anaRenk)),
-        title: Text("My Basket",
+        title: Text("My Cart",
             style: TextStyle(
                 fontSize: 20,fontFamily: "OpenSans-regular", fontWeight: FontWeight.bold, color: anaRenk)),
         centerTitle: true,
@@ -132,7 +132,7 @@ class _CartPageState extends State<CartPage> {
                         const BorderRadius.all(Radius.circular(10.0))),
                 child: Center(
                   child: Text(
-                    "Empty Basket",
+                    "Empty Cart",
                     style: TextStyle(fontSize: 20, color: color6),
                   ),
                 ),
@@ -163,7 +163,7 @@ class _CartPageState extends State<CartPage> {
                             }),
 
                             TextButton(child: Text("Yes"),onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>LocationPage()));
                             }),
                           ],
                         )

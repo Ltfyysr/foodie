@@ -128,7 +128,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 18,top: 24),
-                      child: Text("Delivery Address"),
+                      child: Text("Note: ",style: TextStyle(fontSize: 18),),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),

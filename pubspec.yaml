@@ -37,6 +37,7 @@ dependencies:
   firebase_storage: ^10.2.5
   cloud_firestore: ^3.1.5
   awesome_dialog: ^2.2.1
+  google_maps_flutter: ^2.1.1
 
 
   # The following adds the Cupertino Icons font to your application.
