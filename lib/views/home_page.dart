@@ -69,8 +69,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               ShowCategories(),
+              SizedBox(height: 12),
               mainText(text: "Our Picks For You"),
               ShowChoices(),
+              SizedBox(height: 6),
               mainText(text: "Most Popular"),
               ShowPopulars(),
             ]),
@@ -158,7 +160,7 @@ class mainText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(24.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
