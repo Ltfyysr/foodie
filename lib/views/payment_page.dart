@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:foodie/colors.dart';
 import 'package:foodie/views/order_page.dart';
 
-
 class PaymentPage extends StatefulWidget {
   const PaymentPage({Key? key}) : super(key: key);
-
   @override
   State<PaymentPage> createState() => _PaymentPageState();
 }

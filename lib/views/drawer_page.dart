@@ -82,7 +82,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   color: color3,
                   size: 26,
                 ),
-                text: "Help"),
+                text: 'Help'),
             SizedBox(height: 180),
             GestureDetector(
               onTap: () {
@@ -95,7 +95,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     color: color3,
                     size: 26,
                   ),
-                  text: "Log Out"),
+                  text: 'Log Out'),
             ),
           ],
         ));
