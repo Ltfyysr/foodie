@@ -1,6 +1,6 @@
 # foodie
 
-Techcareer Flutter Bootcamp Bitirme Projem olan Foodie, bir yemek sipariş uygulamasıdır. Bu projeyi gerçekleştirirken kullandığım yapılar;  
+Techcareer.net Flutter Bootcamp Bitirme Projem olan Foodie, bir yemek sipariş uygulamasıdır. Bu projeyi gerçekleştirirken kullandığım yapılar;  
 
 -Widgets
 
