@@ -1,16 +1,28 @@
 # foodie
 
-A new Flutter project.
+Techcareer.net Flutter Bootcamp Bitirme Projem olan Foodie, bir yemek sipariş uygulamasıdır. Bu projeyi gerçekleştirirken kullandığım yapılar;  
 
-## Getting Started
+-Widgets
 
-This project is a starting point for a Flutter application.
+-Bloc Pattern   
 
-A few resources to get you started if this is your first Flutter project:
+-Listview.Builder  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+-Firebase 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-Webservis(dio)    
+
+Uygulama içeriğinde bulunan işlevler;   
+
+-Yemekleri Listeleme   
+
+-Yemek detay sayfasını görüntüleme  
+
+-Seçilen adet ile yemeği sepete yemek ekleme 
+
+-Sepetteki yemekleri görüntüleme  
+
+-Sepetten yemek silme   
+
+
+
