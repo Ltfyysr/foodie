@@ -56,7 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: tfUserName,
                     decoration: InputDecoration(
-                      hintText: "UserNname",
+                      hintText: "UserName",
                       hintStyle: TextStyle(color: color5),
                       filled: true,
                       fillColor: color4,
