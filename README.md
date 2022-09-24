@@ -35,3 +35,5 @@ Uygulama içeriğinde bulunan işlevler;
 
 
 
+https://youtu.be/MJ_JH41qEYs
+
