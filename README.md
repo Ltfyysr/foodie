@@ -14,15 +14,23 @@ Techcareer.net Flutter Bootcamp Bitirme Projem olan Foodie, bir yemek sipariş u
 
 Uygulama içeriğinde bulunan işlevler;   
 
--Yemekleri Listeleme   
+-Başlangıç ekranı
+
+-Kayıt ve Giriş işlemleri 
+
+-Yemekleri listeleme   
 
 -Yemek detay sayfasını görüntüleme  
 
--Seçilen adet ile yemeği sepete yemek ekleme 
+-Seçilen adet ile yemeği sepete ekleme 
 
 -Sepetteki yemekleri görüntüleme  
 
 -Sepetten yemek silme   
+
+-Sepete eklenen siparişi onaylama
+
+-Konum bulma
 
 
 
