@@ -8,9 +8,10 @@ Techcareer.net Flutter Bootcamp Bitirme Projem olan Foodie, bir yemek sipariş u
 
 -Listview.Builder  
 
--Firebase 
+-Firebase Authentication
 
 -Webservis(dio)    
+
 
 Uygulama içeriğinde bulunan işlevler;   
 
